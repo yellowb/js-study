@@ -25,6 +25,9 @@ function shallowCopy(src) {
         if (src.constructor === Array) { // If is an array
             dest = src.slice();
         }
+        else if (src.constructor === Date) { // If is Date
+            dest = new Date(src.getTime());
+        }
         else {  // Other object
             dest = {};
             for (var i in src) {
@@ -35,6 +38,11 @@ function shallowCopy(src) {
     }
 }
 
+/**
+ * Deep copy an object
+ * @param src
+ * @returns {*}
+ */
 function deepCopy(src) {
     if (!checkIsObject(src)) {  //If not an object, just return the copied argument.
         return src;
@@ -46,6 +54,9 @@ function deepCopy(src) {
             for(var idx = 0;idx < src.length; idx++) {
                 dest.push(deepCopy(src[idx]));
             }
+        }
+        else if (src.constructor === Date) { // If is Date
+            dest = new Date(src.getTime());
         }
         else {  // Other object
             dest = {};
@@ -90,7 +101,6 @@ function test() {
     // Try to modify the original ones
     arrObjCopy[0].name = "Sam"; // change the original value!
     obj.addr.city = "GZ";   // change the original value!
-    date.setHours(10);
 
     console.log('-----Shallow Copy-----');
     console.log('nullCopy: ', nullCopy);
