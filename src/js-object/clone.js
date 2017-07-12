@@ -77,7 +77,15 @@ function test() {
     }, {
         name: "Billy"
     }];
-    var obj = {name: "Tom", age: 100, addr: {city: "Zhuhai", country: "China"}};
+    var obj = {
+        name: "Tom",
+        age: 100,
+        addr: {
+            city: "Zhuhai",
+            country: "China"
+        },
+        func: function(a) {console.log(a);}
+    };
     var date = new Date();
 
     // Shallow copy
