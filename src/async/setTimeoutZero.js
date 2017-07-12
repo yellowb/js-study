@@ -8,7 +8,7 @@
  * The trick is to let the fn not to pause outer running function, just push fn into event queue, when the JS
  * engine is free, fn will be executed.
  *
- * **/
+ */
 
 console.log('start.');
 
