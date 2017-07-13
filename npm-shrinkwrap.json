@@ -1,0 +1,16 @@
+{
+  "name": "js-study",
+  "version": "0.0.1",
+  "dependencies": {
+    "appoint": {
+      "version": "1.0.2",
+      "from": "appoint@latest",
+      "resolved": "https://registry.npmjs.org/appoint/-/appoint-1.0.2.tgz"
+    },
+    "immediate": {
+      "version": "3.2.3",
+      "from": "immediate@>=3.2.3 <3.3.0",
+      "resolved": "https://registry.npmjs.org/immediate/-/immediate-3.2.3.tgz"
+    }
+  }
+}
