@@ -6,6 +6,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "appoint": "^1.0.2"
+    "mongoose": "^4.11.4"
   }
 }
