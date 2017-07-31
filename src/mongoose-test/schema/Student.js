@@ -11,4 +11,18 @@ var schema = mongoose.Schema({
     school: SchoolSchema
 });
 
+schema.pre('save', function(next) {
+    console.log('Student.pre.save ! -- 1', this.name);
+    next();
+});
+
+schema.pre('save', function(next) {
+    console.log('Student.pre.save ! -- 2', this.name);
+    next();
+});
+
+schema.post('save', function(doc) {
+    console.log('Student.post.save ! -- 1', doc.name);
+});
+
 module.exports = schema;

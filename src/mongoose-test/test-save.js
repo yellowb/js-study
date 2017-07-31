@@ -10,10 +10,10 @@ var promise = mongoose.connect('mongodb://localhost:27017/test', {
     useMongoClient: true
     /* other options */
 });
-promise.then(function(db) {
+promise.then(function (db) {
     console.log('DB connected!');
-    console.log(db);
-}).catch(function(err) {
+    //console.log(db);
+}).catch(function (err) {
     console.log('DB connect failed!');
     console.log(err.stack);
 });
@@ -34,6 +34,30 @@ student.save(function (err, doc) {
     if (err) return console.error(err);
     else console.log(doc.toJSON());
 });
+
+//var arr = [{
+//    name: 'Chick',
+//    age: 10,
+//    school: {
+//        address: 'USA',
+//        phone: '911',
+//        fee: 9000
+//    }
+//}, {
+//    name: 'JH',
+//    age: 10,
+//    school: {
+//        address: 'USA',
+//        phone: '911',
+//        fee: 9000
+//    }
+//}];
+
+//studentModel.insertMany(arr, function (error, docs) {
+//    if (error) return console.error(error);
+//    else     console.log(docs);
+//});
+
 
 //var kittySchema = mongoose.Schema({
 //    name:   { type: String, lowercase: true },
