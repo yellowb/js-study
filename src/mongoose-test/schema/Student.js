@@ -8,8 +8,11 @@ var schema = mongoose.Schema({
     name: String,
     age: Number,
     school: SchoolSchema
+}, {
+    collection: 'students'
 });
 
+// Middlewares
 schema.pre('save', function(next) {
     console.log('Student.pre.save ! -- 1', this.name);
     next();

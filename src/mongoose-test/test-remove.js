@@ -19,19 +19,10 @@ mongoose.connect(
 var studentSchema = require('./schema/Student');
 var studentModel = mongoose.model('Student', studentSchema);
 
-var student = new studentModel({
-    name: 'Tom',
-    age: 10,
-    school: {
-        address: 'USA',
-        phone: '911',
-        fee: 9000
-    }
-});
-
-// Insert the student !
-// Note that the middlewares will be invoked !
-student.save(function (err, doc) {
-    if (err) return console.error(err);
-    else console.log(doc.toJSON());
+// Remove Tom
+studentModel.remove(
+    {name: 'Tom' },
+    function (err) {
+        if (err) return console.error(err);
+        else return console.log('Removed !');
 });

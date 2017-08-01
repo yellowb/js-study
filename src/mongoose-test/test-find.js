@@ -19,19 +19,14 @@ mongoose.connect(
 var studentSchema = require('./schema/Student');
 var studentModel = mongoose.model('Student', studentSchema);
 
-var student = new studentModel({
-    name: 'Tom',
-    age: 10,
-    school: {
-        address: 'USA',
-        phone: '911',
-        fee: 9000
-    }
-});
-
-// Insert the student !
-// Note that the middlewares will be invoked !
-student.save(function (err, doc) {
-    if (err) return console.error(err);
-    else console.log(doc.toJSON());
-});
+studentModel.
+    find({
+        age: {$gt: 5}
+    }).
+    limit(10).
+    sort({name: 1}).
+    select({name: 1, age: 1}).
+    exec(function (err, result) {
+        if (err) return console.error(error);
+        else return console.log(result);
+    });
