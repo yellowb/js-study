@@ -34,7 +34,7 @@ kitty.save()
     })
     .then(function (kitties) {
         console.log('Now we have kitties:');
-        console.log(JSON.stringify(kitties, null, 2));
+        return console.log(JSON.stringify(kitties, null, 2));
     })
     .then(function () {
         // Disconnect mongodb.
