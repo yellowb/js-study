@@ -5,6 +5,7 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+
 // Connect to mongodb
 mongoose.connect(
     'mongodb://localhost:27017/test',
@@ -17,13 +18,26 @@ mongoose.connect(
 });
 
 // Build schema, model, document
-var kittySchema = mongoose.Schema({
-    name: {type: String},
-    age: {type: Number},
+var Schema = mongoose.Schema;
+
+var kittySchema = Schema({
+    name: {type: String, required: true},
+    age: {type: Number, min:18, max:60},
+    tags: [{type: String}]
+},{
+    // Options
+    collection: 'cats'
 });
+kittySchema.index({ name: 1});
+kittySchema.index({ age: 1});
+
 var KittyModel = mongoose.model('Kitten', kittySchema);
 var kitty = new KittyModel(
-    {name: 'Kitty', age: 20}
+    {
+        name: 'Kitty',
+        age: 23,
+        tags: ['cat', 'love']
+    }
 );
 
 // Save the new document, then find out all documents after saving done.
@@ -38,7 +52,7 @@ kitty.save()
     })
     .then(function () {
         // Disconnect mongodb.
-        return mongoose.disconnect();
+        //return mongoose.disconnect();
     })
     .catch(function (err) {
         console.error(err.stack);

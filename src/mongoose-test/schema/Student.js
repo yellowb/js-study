@@ -4,7 +4,6 @@
 
 var mongoose = require('mongoose');
 var SchoolSchema = require('./School');
-
 var schema = mongoose.Schema({
     name: String,
     age: Number,

@@ -3,11 +3,9 @@
  */
 
 var mongoose = require('mongoose');
-
 var schema = mongoose.Schema({
     address: String,
     phone: String,
     fee: Number
 });
-
 module.exports = schema;
